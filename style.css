@@ -1,0 +1,73 @@
+:root{--navy:#d86031;--blue:#176b87;--teal:#dff3f3;--ink:#172b3a;--muted:#5c6c78;--line:#d7e0e7;--bg:#f3f6f8;--white:#fff;--red:#a52a2a;--green:#176b45}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.45 system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}
+header{background:linear-gradient(120deg,var(--navy),var(--blue));color:white;padding:24px max(18px,calc((100% - 1100px)/2))}
+header h1{margin:0 0 5px;font-size:clamp(1.35rem,3vw,2rem)}header p{margin:0;color:#e2f2f8}
+main{max-width:1100px;margin:22px auto;padding:0 16px 48px;display:grid;gap:18px}
+.panel{background:var(--white);border:1px solid var(--line);border-radius:15px;padding:20px;box-shadow:0 3px 12px #123b5d0a}
+h2{font-size:1.15rem;margin:0 0 15px;color:var(--navy)}h3{font-size:1rem;margin:0 0 8px}
+.form-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:13px}
+label{display:block;font-weight:650;font-size:.9rem;margin-bottom:5px}
+input,textarea,select{width:100%;padding:11px 12px;border:1px solid #b9c8d2;border-radius:9px;font:inherit;background:white;color:var(--ink)}
+textarea{min-height:78px;resize:vertical}input:focus,textarea:focus,select:focus,button:focus-visible{outline:3px solid #7bd0df;outline-offset:2px}
+.full{grid-column:1/-1}.actions{display:flex;gap:9px;flex-wrap:wrap;margin-top:15px}
+button,.file-button{border:0;border-radius:9px;padding:11px 15px;font:650 .94rem system-ui;cursor:pointer;background:var(--navy);color:white;display:inline-flex;align-items:center;justify-content:center;gap:7px}
+button.secondary,.file-button.secondary{background:#e8f0f4;color:var(--navy);border:1px solid #cbd9e1}
+button.danger{background:#fff0f0;color:var(--red);border:1px solid #f0c4c4}button:disabled{opacity:.45;cursor:not-allowed}
+input[type=file]{display:none}.muted{color:var(--muted);font-size:.9rem}.status{padding:10px 12px;border-radius:9px;background:#eef6fa;margin-top:12px;display:none}.status.show{display:block}.status.error{background:#fff0f0;color:var(--red)}.status.success{background:#e9f7ef;color:var(--green)}
+.project-bar{display:flex;gap:12px;align-items:end;flex-wrap:wrap}.project-bar>div{flex:1;min-width:220px}
+.capture-preview{display:none;margin-top:14px;padding:14px;background:#f4f8fa;border:1px dashed #a9c2d0;border-radius:12px}.capture-preview.show{display:block}.capture-preview img{display:block;max-width:100%;max-height:360px;object-fit:contain;margin:12px auto;border-radius:8px}
+.photo-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.photo-card{border:1px solid var(--line);border-radius:12px;overflow:hidden;background:white;display:flex;flex-direction:column;min-width:0}
+.photo-card img{width:100%;height:190px;object-fit:cover;background:#eaf0f3}
+.photo-content{padding:12px;display:flex;flex-direction:column;gap:8px;flex:1}.photo-number{font-weight:800;color:var(--blue)}.photo-meta{font-size:.78rem;color:var(--muted)}.photo-actions{display:flex;gap:6px;flex-wrap:wrap;margin-top:auto}.photo-actions button{padding:8px 10px;font-size:.82rem;flex:1}
+.empty{padding:30px 14px;text-align:center;color:var(--muted);border:1px dashed #b9c8d2;border-radius:12px}
+.notice{font-size:.88rem;color:var(--muted);margin-top:8px}
+@media(max-width:760px){main{padding:0 11px 30px;margin-top:12px}.panel{padding:15px}.form-grid{grid-template-columns:1fr}.photo-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.photo-card img{height:145px}.actions button,.actions .file-button{flex:1}}
+@media(max-width:440px){.photo-grid{grid-template-columns:1fr}.photo-card img{height:220px}header{padding:20px 15px}}
+
+.lista-proyectos {
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(240px, 1fr)
+  );
+  gap: 15px;
+  margin-top: 16px;
+}
+
+.proyecto-tarjeta {
+  background: white;
+  border: 1px solid #d7e0e7;
+  border-radius: 12px;
+  padding: 15px;
+  min-width: 0;
+}
+
+.proyecto-tarjeta h3 {
+  color: #123b5d;
+  overflow-wrap: anywhere;
+}
+
+.proyecto-fotos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 12px 0;
+}
+
+.proyecto-fotos img {
+  width: 85px;
+  height: 85px;
+  object-fit: cover;
+  border-radius: 7px;
+}
+
+.proyecto-tarjeta button {
+  margin-top: 8px;
+}
+
+@media (max-width: 480px) {
+  .lista-proyectos {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#123b5d">
+<title>Registro de fiscalización</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <h1>Registro de fiscalización</h1>
+  <p>Registro de intervención y elaboración de anexo fotográfico</p>
+</header>
+<main>
+<section class="panel">
+  <h2>1. Proyecto / fiscalización</h2>
+  
+<div class="actions">
+  <button id="verProyectos" type="button">
+    Ver todos los proyectos guardados
+  </button>
+</div>
+
+<div id="listaProyectos" class="lista-proyectos"></div>
+
+  <div class="project-bar">
+    <div><label for="savedProjects">Proyectos guardados</label><select id="savedProjects"><option value="">Crear nuevo proyecto…</option></select></div>
+    <button id="newProject" class="secondary" type="button">Nuevo</button>
+    <button id="openProject" type="button">Abrir seleccionado</button>
+  </div>
+  <div class="form-grid" style="margin-top:16px">
+    <div><label for="code">Código de práctica *</label><input id="code" placeholder="Ej. PRACT-001" required></div>
+    <div><label for="date">Fecha de intervención *</label><input id="date" type="date" required></div>
+    <div><label for="place">Lugar *</label><input id="place" placeholder="Ej. Lima, distrito ficticio" required></div>
+    <div><label for="inspector">Nombre del fiscalizador *</label><input id="inspector" placeholder="Nombre ficticio" required></div>
+    <div class="full"><label for="establishment">Establecimiento o unidad ficticia *</label><input id="establishment" placeholder="Ej. Unidad de práctica Alfa" required></div>
+  </div>
+  <div class="actions"><button id="saveProject" type="button">Guardar proyecto</button><button id="deleteProject" class="danger" type="button">Eliminar proyecto</button></div>
+  <div id="projectStatus" class="status" role="status" aria-live="polite"></div>
+  <p class="notice">Los datos y fotografías se guardan en este navegador mediante IndexedDB. No borres los datos del sitio si deseas conservarlos.</p>
+</section>
+
+<section class="panel">
+  <h2>2. Incorporar fotografías</h2>
+  <p class="muted">Toma una foto con la cámara del celular o selecciona una imagen. Revisa la vista previa y confirma para añadirla al anexo.</p>
+  <div class="actions">
+    <label class="file-button" for="cameraInput">📷 Tomar fotografía</label>
+    <input id="cameraInput" type="file" accept="image/*" capture="environment">
+    <label class="file-button secondary" for="galleryInput">🖼️ Elegir imagen</label>
+    <input id="galleryInput" type="file" accept="image/*" multiple>
+  </div>
+  <div id="capturePreview" class="capture-preview">
+    <h3>Vista previa</h3><div id="previewList"></div>
+    <label for="newDescription">Descripción de la fotografía</label>
+    <textarea id="newDescription" placeholder="Describe objetivamente lo que se observa…"></textarea>
+    <div class="actions"><button id="confirmPhoto" type="button">Confirmar e incorporar</button><button id="cancelPhoto" class="secondary" type="button">Cancelar</button></div>
+  </div>
+  <div id="photoStatus" class="status" role="status" aria-live="polite"></div>
+</section>
+
+<section class="panel">
+  <h2>3. Revisar y ordenar el anexo</h2>
+  <p class="muted">Edita cada descripción, mueve las fotografías y elimina las que no correspondan. La numeración se actualiza según el orden mostrado.</p>
+  <div id="photoGrid" class="photo-grid"><div class="empty">Guarda o abre un proyecto y agrega fotografías para comenzar.</div></div>
+  <div class="actions"><button id="exportWord" type="button">⬇️ Generar anexo Word (.docx)</button></div>
+  <div id="exportStatus" class="status" role="status" aria-live="polite"></div>
+</section>
+</main>
+<script src="https://cdn.jsdelivr.net/npm/docx@8.5.0/build/index.umd.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
